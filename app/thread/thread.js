@@ -19,9 +19,12 @@ angular.module('thread',[])
 	  	tc.currentID = threadData.currentID
 	  	threadData.currentThread = tc.threads.filter(function(obj) {
     		return obj.OPID === tc.currentID;
+
 			})[0];
 			tc.thread = threadData.currentThread;
 			console.log(tc.thread)
+
+			tc.threads
 
 
 			//locates replies for this thread...
@@ -54,8 +57,10 @@ angular.module('thread',[])
 
 
       tc.newReply = function(send){
-      		console.log('current ID when sending:' + tc.currentID)
-      		console.log("is REPLY working?!!!")
+
+      		
+
+
           // do some validation
           if ( !send.reply ) {
           	console.log("nothing happened"); 
@@ -79,10 +84,13 @@ angular.module('thread',[])
             	_sendImage=tc.sendImage
             }
 */
-            tc.replies.$add({OPID: tc.currentID, reply: {
+            tc.replies.$add(
+            {
+            		OPID: tc.currentID,
                 ID: make_randID(),
                 userName: 'anonymous',
                 datetime: post_time(),
+                datesort: new Date().getTime(),
                 content: send.reply.trim(),
                 rID1bg: randomRGBcolor(),
                 rID2bg: randomRGBcolor(),
@@ -101,11 +109,12 @@ angular.module('thread',[])
                 rID7t: randomRGBcolor(),
                 rID8t: randomRGBcolor(),
                 image: tc.sendImage || ''
-           	}});
+           	});
             send.reply = '';
-            console.log(tc.currentReplies)
+            
             tc.replies.$loaded(function(){
 							tc.currentReplies = search(tc.currentID, tc.replies);
+							console.log(tc.currentReplies)
 							})
           }
       };

@@ -1,25 +1,78 @@
 angular.module('catalog',[])
 
-.directive('mxCatalog', ['newPostClick', 'threadData', 'canvasDataTest', function(newPostClick, threadData, canvasDataTest){
+.directive('mxCatalog', ['newPostClick', 'threadData', 'canvasDataTest', 'replyData', function(newPostClick, threadData, canvasDataTest, replyData){
 	return {
 		restrict: 'E',
 	  templateUrl: 'catalog/catalog.html',
 	  scope: true,
 	  transclude: true,
 	  link: function(scope, element, attrs){
-	  	scope.threads = threadData.threads;
+	  	scope.threads = threadData.threads
+	  	scope.replies = replyData.replies
+
+
 	  	scope.newPostClick = newPostClick.if
 	  	scope.newPostClickImage = newPostClick.ifImage
 
 	  	scope.postTime = post_time()
 	  	
 
-	  	
 
 
+
+
+
+
+	  	//the sortBy filter for making sure newest post on top
+	  	scope.SortFunctionTest = function(thread){
+
+	  		console.log('testing!')
+	  		console.log(thread)
+
+	  		//reply array
+	  		var replies = scope.replies
+
+	  		//to find replies and their times into currentreplies array
+	  		function searchForReplies(_thread, _replyArray){
+					var array = []
+			    for (var i=0; i < _replyArray.length; i++) {
+			        if (_replyArray[i].OPID === _thread.OPID) {
+			            array.push(_replyArray[i]);
+			        }
+			    }
+
+			    return array
+			  }
+			  var currentreplies = searchForReplies(thread, replies)
+
+
+			  if (currentreplies.length > 0){
+			  	console.log(currentreplies)
+				  console.log(currentreplies[0].OPID)
+				  console.log('datesort is' + currentreplies[0].datesort)
+
+			  //currentreplies.reply.datesort
+					var res = Math.max.apply(Math,currentreplies.map(function(o){return o.datesort;}))
+					console.log('newest reply in the thread is' + res)
+
+					if (res > thread.posts[0].datesortMain){
+						console.log('res is longer')
+						return res
+					}
+				}
+
+				console.log('THREAD TIME IS LONGER:' + thread.posts[0].datesortMain)
+				console.log(thread.posts[0].datesortMain)
+				return thread.posts[0].datesortMain
+				
+	  	}
 	  }
   }
 }])
+
+
+
+
 
 .factory('newPostClick',function(){
 	var newPostClick = {}
@@ -40,9 +93,27 @@ angular.module('catalog',[])
 	threadData.currentID = null
 	threadData.currentThread = null
 
+	threadData
+
 	return threadData
 
 }])
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

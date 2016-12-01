@@ -38,97 +38,6 @@ major features:
 
 
 
-->database structure for threads and posts?
--> new thread: type it in, post it...
--> sends it to database, opens "thread" page with your post
--> how do replies get added? where are they stored?
--> 
-
-
-
-
-threadNumber
-
-
-
-
-
-->randomize ID tags
-
-
-
-
-
-database structure for message board
-
-
-
-WHY IS THE ROUTE MESSING UP IN THE REPLY AREA
-
-
-
-
-
-
-
-
-
-
-
-
-
-
----->add image
-click = show text box
-
-
-
-
-
-
-
-
-
-
-->when press reply, it loads in all the replies...
-
-
-
--> reply count
-
-
-
-
-
-
-
-
-
-*=detail feature
-
--generate variables on new post/reply for the canvas system
-*-canvas system resizes everything if the line crosses off of canvas by adjusting down until it fits
--when post is made, grabs variables and puts them into the canvas
-
-
-
-
-CANVAS IDS ARE GETTING MIXED UP, RENAME ID FOR PROGRAM TO WORK
-
-
-
-
-
-
-
--reply system
--ensure threads are not posted onto page
-
-
-
-
-
-
 
 
 SOON FEATURES:
@@ -148,6 +57,73 @@ BACKEND TO COME:
 -video
 -audio
 -javascript drawing
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+REPLY :
+-order by: (add DATE object to database for each post/thread, put them together and into array, )
+-for making sure there aren't too many threads...(keep count of them in threadData factory, when it reaches a certain point, delete the one that is last on orderbyTIME function above^)
+-make sure items go horizontally (FIGURE THAT OUT)
+-move to bottom of page when new post/reply (or move to that reply)
+
+VISUALIZED REPLY COUNT:
+
+CLICKING ON TAGS TO REPLY:
+
+CLICK IMAGES TO RESIZE:
+
+IMAGE SIZING ON FRONT PAGE:
+
+
+
+
+
+
+
+
+still can't figure out how to write the reply system for updating posts... I NEED AN ARRAY for the orderby function
+function(thread)->searches replies by OPID and returns most recent date...
+if there is no reply in DB, returns datesortMain
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

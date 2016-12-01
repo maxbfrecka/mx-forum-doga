@@ -13,16 +13,36 @@ angular.module('threadPreview',[])
 	  	//gets imageID from init variable to pass around
 	  	imageBotData.imageID = scope.image;
 
-	  	console.log("scope.image is " + scope.image)
-	  	console.log("imagebotdata.image is " + imageBotData.imageID)
-
-	  	function imgError(image){
-  			image.parentNode.parentNode.style.display = 'none';
-			}
-
-
 
 
 		}
   }
 }])
+
+
+
+/*
+-each thread/reply has a datesort on it
+-sort thread previews by datesort
+
+
+*/
+
+.factory('replyCounter', function(){
+	var replyCounter = {}
+
+	replyCounter.getDateSort = function(obj){
+
+
+	}
+
+
+
+
+
+	return replyCounter
+
+
+
+
+})
