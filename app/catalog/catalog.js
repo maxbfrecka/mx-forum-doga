@@ -25,10 +25,6 @@ angular.module('catalog',[])
 
 	  	//the sortBy filter for making sure newest post on top
 	  	scope.SortFunctionTest = function(thread){
-
-	  		console.log('testing!')
-	  		console.log(thread)
-
 	  		//reply array
 	  		var replies = scope.replies
 
@@ -36,33 +32,21 @@ angular.module('catalog',[])
 	  		function searchForReplies(_thread, _replyArray){
 					var array = []
 			    for (var i=0; i < _replyArray.length; i++) {
-			        if (_replyArray[i].OPID === _thread.OPID) {
-			            array.push(_replyArray[i]);
-			        }
+		        if (_replyArray[i].OPID === _thread.OPID) {
+		            array.push(_replyArray[i]);
+		        }
 			    }
-
 			    return array
 			  }
 			  var currentreplies = searchForReplies(thread, replies)
-
-
+			  //checks if replies exist, if they do then it finds the newest one, then checks against thread time
+			  //returns fastest of the two
 			  if (currentreplies.length > 0){
-			  	console.log(currentreplies)
-				  console.log(currentreplies[0].OPID)
-				  console.log('datesort is' + currentreplies[0].datesort)
-
-			  //currentreplies.reply.datesort
 					var res = Math.max.apply(Math,currentreplies.map(function(o){return o.datesort;}))
-					console.log('newest reply in the thread is' + res)
-
 					if (res > thread.posts[0].datesortMain){
-						console.log('res is longer')
 						return res
 					}
 				}
-
-				console.log('THREAD TIME IS LONGER:' + thread.posts[0].datesortMain)
-				console.log(thread.posts[0].datesortMain)
 				return thread.posts[0].datesortMain
 				
 	  	}

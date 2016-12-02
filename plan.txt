@@ -41,16 +41,10 @@ major features:
 
 
 SOON FEATURES:
--most recent post goes to top
 -randomized colors on NAV bar [*when on catalog / thread page]
--color gets more intense the more replies there are in the thread (function)
-simple version: [get the post with highest amount of replies][measure other posts against it][intensify the brightness of the color until it reaches top for reply counts]
--FIX THE IMAGE ERROR SYSTEM. WHAT THE HELL [error stuff in directive...]
 -topic/subject in newpost -> this is what gets posted to catalog preview
--canvas randomizer for threads without image
 -reply system with tag insertion
 -hover over threadpreview and popup of the first post appears
--reply count in thread?
 
 BACKEND TO COME:
 -account system
@@ -94,21 +88,19 @@ IMAGE SIZING ON FRONT PAGE:
 
 
 
-still can't figure out how to write the reply system for updating posts... I NEED AN ARRAY for the orderby function
-function(thread)->searches replies by OPID and returns most recent date...
-if there is no reply in DB, returns datesortMain
 
 
 
+basic features remaining:
+-click to reply system
+-subject line
+-image upload from file
+-move page down on reply
+-max threads
 
-
-
-
-
-
-
-
-
+FIX HOVERING FOR THREAD PREVIEW:
+http://stackoverflow.com/questions/24224753/changing-element-colour-on-hover-angularjs
+[could be of use for something else]
 
 
 
