@@ -7,9 +7,17 @@ angular.module('views', ['ngRoute'])
 	  	templateUrl: 'views/thread.html',
 	  	controller: 'threadController'
 	  })
-	  .when('/:ID/canvastest', {
+	  .when('/canvas/canvastest', {
 	  	templateUrl: 'views/canvastest.html',
 	  	controller: 'canvasController'
+	  })
+	  .when('/browse/browse', {
+	  	templateUrl: 'views/browse.html',
+	  	controller: 'browseController'
+	  })
+	  .when('/:artist/:album', {
+	  	templateUrl: 'views/album.html',
+	  	controller: 'albumController'
 	  })
 	  .when('/error', {
 	    template : '<p>Error - Page Not Found</p>'
@@ -31,4 +39,11 @@ angular.module('views', ['ngRoute'])
 .controller('canvasController', ['$scope', 'testData', 'threadData', function($scope, testData, threadData){
 	$scope.threads = testData.threads;
 	$scope.threadData = threadData.threads
+}])
+
+.controller('browseController', ['$scope', function($scope){
+}])
+
+.controller('albumController', ['$scope', 'browseTestData', function($scope, $browseTestData){
+	$scope.artists = browseTestData.artists
 }])

@@ -20,10 +20,16 @@
 		    </div>
 		    <ul class="nav navbar-nav">
 		      <li id="navbar_links" class="active"><a href="/app/#/">CATALOG</a></li>
+		      <li id="navbar_links" class="active"><a href="/app/#/canvas/canvastest">CANVAS</a></li>
+		      <li id="navbar_links" class="active"><a href="/app/#/browse/browse">BROWSE</a></li>
 		    </ul>
 		  </div>
 		</nav>
 	</div>
+</div>
+
+<div class="musicPlayerBar">
+	<mx-music-controller></mx-music-controller>
 </div>
 
 	<div class="viewContent">
@@ -62,7 +68,7 @@
 	<script src="./bower_components/angular-animate/angular-animate.js"></script>
 	<script src="./bower_components/angularfire/dist/angularfire.min.js"></script>
 	<script src="./bower_components/firebase/firebase.js"></script>
-
+	<script src="./bower_components/angular-audio/app/angular.audio.js"></script>
 
 	<script src="../node_modules/lodash/lodash.js"></script>
 
@@ -79,7 +85,11 @@
 	<script src="./images/image-bot.js"></script>
 	<script src="./canvasBot/canvas-bot.js"></script>
 	<script src="./canvastest/canvas-test.js"></script>
-
+	<script src="./browse/browse.js"></script>
+	<script src="./musicPlayer/musicPlayer.js"></script>
+	<script src="./musicPlayer/musicController.js"></script>
+	<script src="./albumPreview/albumPreview.js"></script>
+	<script src="./albumDetail/albumDetail.js"></script>
 
 	<script type="text/javascript" src="firebase.config.js"></script>
 

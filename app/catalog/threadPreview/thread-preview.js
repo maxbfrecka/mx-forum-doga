@@ -20,7 +20,6 @@ angular.module('threadPreview',[])
 
 		  	//individual reply count
 		  	scope.replyCount = scope.getReplyCount(scope.thread, scope.replies)
-		  	console.log(scope.replyCount)
 
 		  	//get reply counts into array
 		  	scope.allReplyCounts = replyCounter.allReplyCounts
@@ -38,7 +37,6 @@ angular.module('threadPreview',[])
 		  		scope.replyRatio = Math.round(((scope.replyCount/scope.maximumReplyCount)*10))} else {
 		  			scope.replyRatio=0;
 		  		}
-		  	console.log('the reply ratio is' + scope.replyRatio)
 
 		  	//calculate colors
 		  	if (scope.replyRatio === 0){scope.replyColor='#ffffff'} 
@@ -52,7 +50,6 @@ angular.module('threadPreview',[])
 		  									else if (scope.replyRatio === 8){scope.replyColor='#62f755'}
 		  										else if (scope.replyRatio === 9){scope.replyColor='#4cf63c'}
 		  											else if (scope.replyRatio === 10){scope.replyColor='#1ff40b'}
-		  	console.log(scope.replyColor)
 	  	})
 
 
@@ -95,13 +92,7 @@ angular.module('threadPreview',[])
 	  return currentreplies.length
 	}
 
-
-
-
-
 	return replyCounter
-
-
 
 
 })

@@ -2,33 +2,35 @@ body {
 	background-color:yellow;
 }
 
+/*to make navbar skinnier*/
+/*.navbar-nav > li > a {padding-top:10px !important; padding-bottom:10px !important;}
+.navbar {min-height:40px !important}*/
+
 li.active {
     color:purple;
 }
 
 li#navbar_links {
-    border-radius: 25px;
-    color:red;
+    border-radius: 20px;
+    color:blue;
     font-size:18px;
 }
-
 .viewContent {
-
 }
 
 /*remove position fixed if return to prior state*/
 .navbarMargin {
-	margin-top:10px;
-/*	position: fixed;
-	z-index:1;*/
+    margin-top:10px;
+/*  position: fixed;
+    z-index:1;*/
 }
 
 .navbar-brand {
-	font-size:20px;
+    font-size:20px;
 }
 
 .navbar-controller {
-	min-width: 1000px;
+    min-width: 1000px;
 }
 
 .navbar-default {
@@ -36,6 +38,7 @@ li#navbar_links {
   margin: 0 0 3px 0;
   background-color: red;
   border-radius: 25px;
+  max-height:0em;
 }
 
 
@@ -61,15 +64,15 @@ li#navbar_links {
 }
 
 .makeNewPost {
-    background-color:#fbfad0;
+    background-color:#11fb19;
     color:grey;
 	padding-top:10px;
     padding-bottom:40px;
 	font-size: 19px;
 	height:59px;
 	width:260px;
-    border-color:white;
-    border-width:2px;
+    border-color:#1a75ff;
+    border-width:0px;
     border-style:solid;
 	margin-bottom:5px;
 	border-radius:10px;
@@ -78,7 +81,7 @@ li#navbar_links {
 .makeNewPost:hover{
 	cursor: pointer;
     color:grey;
-    background-color:#ffff99;
+    background-color:#1a75ff;
 }
 
 .newPostContainer{
@@ -176,7 +179,7 @@ ul.catalogThreads {
 
 .replyCount {
     color:black;
-    font-size: 12px;
+    font-size: 12px;re
 }
 
 
@@ -379,6 +382,177 @@ span#time{
     color:rgb(23, 25, 28);
     background-color:rgb(248, 255, 251);
 }
+
+.browseContainer{
+    width: 90%;
+    background-color: #fff94d;
+    margin:30px;
+}
+
+.albumPreview {
+    background-color:red;
+    max-width:400px;
+}
+
+
+
+.form-control {
+  display: block;
+  width: 100%;
+  height: 34px;
+  padding: 6px 12px;
+  font-size: 14px;
+  margin: 10px;
+  line-height: 1.42857143;
+  color: #555;
+  background-color: #fff;
+  background-image: none;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+  -webkit-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+          transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+}
+
+
+
+.musicPlayerBar {
+    background-color:#fff94d;
+    margin-top:10px;
+    padding:3px;
+    padding-left:100px;
+}
+
+
+.musicControllerContainer{
+    max-width:40%;
+    min-width:400px;
+    background-color:yellow;
+    margin-left:20px;
+    margin: 0 auto;
+    text-align: center;
+    height:70px;
+    padding:2px;
+    display:inline-block;
+    margin-right:40px;
+    float:left;
+}
+
+.musicButtonsContainer{
+}
+
+.audioButton {
+    font-size:12px;
+    width:100px;
+    margin:3px;
+}
+
+.musicVolumeContainer{
+    margin:20px;
+    display:inline-block;
+}
+
+.volumeSlider { 
+}
+
+
+
+
+
+.musicPlayerContainer{
+    margin-left:20px;
+    max-width:50%;
+    min-width:50%;
+    background-color:yellow;
+    margin: 0 auto;
+    text-align: center;
+    height:70px;    
+    padding:2px;
+    display:inline-block;
+}
+
+.musicPlayerArtIconContainer {
+    margin:2px;
+    margin-top:4px;
+    margin-right:8px;
+    padding:3px;
+    background-color:white;
+    display:inline-block;
+}
+
+.musicPlayerAlbumArtIcon {
+    height:50px;
+    width:50px;
+    display:inline-block;
+}
+
+.musicPlayerTimeContainer {
+    min-width:80%;
+    max-width: 80%;
+    height:40px;
+    background-color:white;
+    margin: 0 auto;
+    text-align: center;
+    display:inline-block;
+}
+
+.timeDisplayContainerCurrent {
+    columns: 3;
+    padding:5px;
+    margin:4px;
+    width:30px;
+    height:30px;
+    display:inline-block;
+}
+
+.timeDisplayContainerRemaining {
+    padding:5px;
+    margin:4px;
+    width:30px;
+    height:30px;
+    display:inline-block;
+}
+
+.timeRangeContainer {
+    min-width:60%;
+    padding:5px;
+    display:inline-block;
+}
+
+.musicPlayerCurrentTimeDisplay {
+}
+
+.musicPlayerTimeRange {
+}
+
+.musicPlayerRemainingTimeDisplay {
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .footerContainer{
     text-align: center;

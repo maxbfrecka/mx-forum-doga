@@ -1,15 +1,25 @@
 angular.module('thread',[])
 
-.directive('mxThread', ['testData', '$routeParams', 'newReplyClick', 'threadData', 'replyData', function(testData, $routeParams, newReplyClick, threadData, replyData){
+.directive('mxThread', ['testData', '$routeParams', 'newReplyClick', 'threadData', 'replyData', '$location', '$timeout', '$interval', function(testData, $routeParams, newReplyClick, threadData, replyData, $location, $timeout, $interval){
 	return {
 		restrict: 'E',
 	  templateUrl: 'thread/thread.html',
 	  scope: true,
 	  transclude: true,
 	  controllerAs: "tc",
-	  controller: function($firebaseArray){
+	  link: function(scope,element,attrs){
+
+	  	//scrolls to top on load
+	  	window.scrollTo(0, 0)
+	  		  	
+	  },
+	  controller: function($location, $scope){
 	  	var tc = this;
 
+	  	//get to top of page:
+
+
+	  	//data for thread/replies
 	  	tc.threads = threadData.threads;
 	  	tc.replies = replyData.replies;
 	
@@ -25,7 +35,6 @@ angular.module('thread',[])
 			console.log(tc.thread)
 
 			tc.threads
-
 
 			//locates replies for this thread...
 			function search(nameKey, myArray){
@@ -46,20 +55,35 @@ angular.module('thread',[])
 					})[0];
 				tc.thread = threadData.currentThread;
 			})
-
 			tc.replies.$loaded(function(){
 				tc.currentReplies = search(tc.currentID, tc.replies);
 			})
 			
-			/*function imgError(image){
-  			image.parentNode.parentNode.style.display = 'none';
-			}*/
+			//watches replies to update when a user makes a new reply
+			$scope.$watch(function(){return replyData.replies},function(){
+ 				console.log('replies changed')
+ 				function search(nameKey, myArray){
+				var array = []
+		    for (var i=0; i < myArray.length; i++) {
+		        if (myArray[i].OPID === nameKey) {
+		            array.push(myArray[i]);
+		        }
+		    }
+		    return array
+				}
+				tc.currentReplies = search(tc.currentID, tc.replies)
+
+				//this function might be stupid, eventually needs to be rethought
+				//I'm using an interval to make sure the replies update when a new one is made
+				//had trouble with the scope or something
+				$interval(function() {tc.currentReplies = search(tc.currentID, tc.replies)
+				}, 500)
+				
+ 			})
 
 
+			//the function for adding a reply
       tc.newReply = function(send){
-
-      		
-
 
           // do some validation
           if ( !send.reply ) {
@@ -75,19 +99,13 @@ angular.module('thread',[])
             // threads[0].posts[0] is the OP and also URL
             //array of posts inside of each thread
 
-/*
-            if (tc.sendImage==null){
-            	_sendImage='http://www.geeks123.com/wp-content/uploads/2014/09/punch-through-computer-screen-frustration.jpg'
-            } else if (tc.sendImage==undefined){
-            	_sendImage='http://www.geeks123.com/wp-content/uploads/2014/09/punch-through-computer-screen-frustration.jpg'
-            } else {
-            	_sendImage=tc.sendImage
-            }
-*/
+						//assists in moving page to correct ID at bottom
+						newReplyID = make_randID()
+
             tc.replies.$add(
             {
             		OPID: tc.currentID,
-                ID: make_randID(),
+                ID: newReplyID,
                 userName: 'anonymous',
                 datetime: post_time(),
                 datesort: new Date().getTime(),
@@ -110,29 +128,36 @@ angular.module('thread',[])
                 rID8t: randomRGBcolor(),
                 image: tc.sendImage || ''
            	});
+
             send.reply = '';
             
             tc.replies.$loaded(function(){
 							tc.currentReplies = search(tc.currentID, tc.replies);
 							console.log(tc.currentReplies)
-							})
+
+							//scroll to the bottom
+							tc.goToReply = function(id) {
+						      // set the location.hash to the id of
+						      // the element you wish to scroll to.
+						      console.log("woring")
+						      var old = $location.hash();
+							    $location.hash(id);
+							    $anchorScroll();
+							    $location.hash(old);
+						  }
+						  tc.goToReply(newReplyID)
+
+						})
           }
       };
-
-
-
-
-
-
-
-
-
 
 			//for show and hide post
 			tc.newReplyClick = newReplyClick.if
 			tc.newReplyClickImage = newReplyClick.ifImage
+	  
 	  }
   }
+
 }])
 
 .factory('replyData', ['$firebaseArray', function($firebaseArray){
