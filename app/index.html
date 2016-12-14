@@ -19,9 +19,13 @@
 		      <a class="navbar-brand" href="/app/#/">MX-FORUM</a>
 		    </div>
 		    <ul class="nav navbar-nav">
-		      <li id="navbar_links" class="active"><a href="/app/#/">CATALOG</a></li>
-		      <li id="navbar_links" class="active"><a href="/app/#/canvas/canvastest">CANVAS</a></li>
-		      <li id="navbar_links" class="active"><a href="/app/#/browse/browse">BROWSE</a></li>
+		      <li id="navbar_links" class="active"><a href="/app/#/catalog">CATALOG</a></li>
+		      <li id="navbar_links" class="active"><a href="/app/#/browse/">BROWSE</a></li>
+		      <li id="navbar_links" class="active"><a href="/app/#/artists/">ARTISTS</a></li>
+		     <!--  <li id="navbar_links" class="active"><a href="/app/#/library/">LIBRARY</a></li> -->
+		      <li id="navbar_links" class="active"><a href="/app/#/createArtist/">CREATE ARTIST</a></li>
+		      <li id="navbar_links" class="active"><a href="/app/#/createAlbum/">CREATE ALBUM</a></li>
+		      <li id="navbar_links" class="active"><a href="/app/#/login/">LOG IN / SIGN UP</a></li>
 		    </ul>
 		  </div>
 		</nav>
@@ -69,6 +73,7 @@
 	<script src="./bower_components/angularfire/dist/angularfire.min.js"></script>
 	<script src="./bower_components/firebase/firebase.js"></script>
 	<script src="./bower_components/angular-audio/app/angular.audio.js"></script>
+	<script src="./bower_components/ng-file-upload/ng-file-upload.js"></script>
 
 	<script src="../node_modules/lodash/lodash.js"></script>
 
@@ -82,7 +87,6 @@
 	<script src="./views/views.js"></script>
 	<script src="./app.js"></script>
 	<script src="./rID/rID.js"></script>
-	<script src="./images/image-bot.js"></script>
 	<script src="./canvasBot/canvas-bot.js"></script>
 	<script src="./canvastest/canvas-test.js"></script>
 	<script src="./browse/browse.js"></script>
@@ -90,13 +94,19 @@
 	<script src="./musicPlayer/musicController.js"></script>
 	<script src="./albumPreview/albumPreview.js"></script>
 	<script src="./albumDetail/albumDetail.js"></script>
+	<script src="./library/library.js"></script>
+	<script src="./createAlbum/createAlbum.js"></script>
+	<script src="./login/login.js"></script>
+	<script src="./signUp/signUp.js"></script>
+	<script src="./createArtist/createArtist.js"></script>
+	<script src="./artists/artists.js"></script>
+	<script src="./artists/artist/artist.js"></script>
 
 	<script type="text/javascript" src="firebase.config.js"></script>
 
 
 	<script src="./assets/randomizer.js"></script>
 	<script src="./assets/dateMaker.js"></script>
-	<script src="./assets/image-maker-bot.js"></script>
 
 </body>
 </html>

@@ -1,0 +1,24 @@
+<form name="form">
+
+	<input type="text" placeholder="Artist Name" ng-model="artistName" required>
+
+	<input type="text" placeholder="Album Name" ng-model="albumName" required>
+
+	<div class="button" ngf-select ng-model="albumImageFile" name="albumImage" ngf-pattern="'image/*'"
+	    ngf-accept="'image/*'" ngf-max-size="30MB" ngf-min-height="10" 
+	    ngf-resize="{width: 300, height: 300}">Choose Artist Image</div>
+
+<!-- 	<div class="button" ngf-select ng-model="albumTrackFile" name="albumTrack" ngf-pattern="'image/*'"
+	    ngf-accept="'audio/wav'" ngf-max-size="100mb">Add Track</div> -->
+
+	<button type="submit" ng-click="submitAlbum()">submit</button>
+
+</form>
+
+
+
+
+Audio preview: <audio controls ngf-src="file"></audio>
+
+<br>
+<br>
